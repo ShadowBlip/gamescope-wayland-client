@@ -6,7 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-bitflags = "2.4.1"
-wayland-backend = "0.3.2"
-wayland-client = "0.31.1"
-wayland-scanner = "0.31.0"
+bitflags = "2.6.0"
+wayland-backend = "0.3.7"
+wayland-client = "0.31.6"
+wayland-scanner = "0.31.5"
