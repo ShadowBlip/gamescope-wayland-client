@@ -1,21 +1,60 @@
 // Generate the bindings in their own module
 
-//pub mod frog {
-//    use wayland_client;
-//    // This module hosts a low-level representation of the protocol objects
-//    // you will not need to interact with it yourself, but the code generated
-//    // by the generate_client_code! macro will use it
-//    pub mod __interfaces {
-//        wayland_scanner::generate_interfaces!("./protocol/frog-color-management-v1.xml");
-//    }
-//    use self::__interfaces::*;
-//
-//    // This macro generates the actual types that represent the wayland objects of
-//    // your custom protocol
-//    wayland_scanner::generate_client_code!("./protocol/frog-color-management-v1.xml");
-//}
-
 pub mod mangoapp;
+
+pub mod color_management {
+    use wayland_client;
+    // This module hosts a low-level representation of the protocol objects
+    // you will not need to interact with it yourself, but the code generated
+    // by the generate_client_code! macro will use it
+    pub mod __interfaces {
+        use crate::color_management::wayland_client::protocol::__interfaces::wl_output_interface;
+        use crate::color_management::wayland_client::protocol::__interfaces::wl_surface_interface;
+        use crate::color_management::wayland_client::protocol::__interfaces::WL_OUTPUT_INTERFACE;
+        use crate::color_management::wayland_client::protocol::__interfaces::WL_SURFACE_INTERFACE;
+        wayland_scanner::generate_interfaces!("./protocol/color-management-v1.xml");
+    }
+    use self::__interfaces::*;
+
+    // This macro generates the actual types that represent the wayland objects of
+    // your custom protocol
+    use crate::color_management::wayland_client::protocol::wl_output;
+    use crate::color_management::wayland_client::protocol::wl_surface;
+    wayland_scanner::generate_client_code!("./protocol/color-management-v1.xml");
+}
+
+pub mod frog_color_management {
+    use wayland_client;
+    // This module hosts a low-level representation of the protocol objects
+    // you will not need to interact with it yourself, but the code generated
+    // by the generate_client_code! macro will use it
+    pub mod __interfaces {
+        use crate::frog_color_management::wayland_client::protocol::__interfaces::wl_surface_interface;
+        use crate::frog_color_management::wayland_client::protocol::__interfaces::WL_SURFACE_INTERFACE;
+        wayland_scanner::generate_interfaces!("./protocol/frog-color-management-v1.xml");
+    }
+    use self::__interfaces::*;
+
+    // This macro generates the actual types that represent the wayland objects of
+    // your custom protocol
+    use crate::frog_color_management::wayland_client::protocol::wl_surface;
+    wayland_scanner::generate_client_code!("./protocol/frog-color-management-v1.xml");
+}
+
+pub mod action_binding {
+    use wayland_client;
+    // This module hosts a low-level representation of the protocol objects
+    // you will not need to interact with it yourself, but the code generated
+    // by the generate_client_code! macro will use it
+    pub mod __interfaces {
+        wayland_scanner::generate_interfaces!("./protocol/gamescope-action-binding.xml");
+    }
+    use self::__interfaces::*;
+
+    // This macro generates the actual types that represent the wayland objects of
+    // your custom protocol
+    wayland_scanner::generate_client_code!("./protocol/gamescope-action-binding.xml");
+}
 
 pub mod control {
     use wayland_client;
