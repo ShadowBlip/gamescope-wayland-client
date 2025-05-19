@@ -15,6 +15,8 @@
 //    wayland_scanner::generate_client_code!("./protocol/frog-color-management-v1.xml");
 //}
 
+pub mod mangoapp;
+
 pub mod control {
     use wayland_client;
     // This module hosts a low-level representation of the protocol objects
